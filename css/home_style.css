@@ -167,7 +167,6 @@ html, body {
     height: 720px;
     margin: 110px auto 0; /* 上方 110px，左右自动居中 */
 
-    margin: 110px auto 0;
     border-radius: 20px;
 
     .carousel{
