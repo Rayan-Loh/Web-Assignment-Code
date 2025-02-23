@@ -4,6 +4,7 @@
         <div class="social-media">
             <div class="social-item">
                 <i class="fab fa-youtube"></i>
+                 <a href="https://www.instagram.com/" target="_blank">
                 <span>YouTube</span>
             </div>
             <div class="social-item">
