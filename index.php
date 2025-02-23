@@ -53,16 +53,24 @@ session_start();
         <div class="category-container">
             <p>Category</p>
             <div class="category">
-                <a href="category1.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第一类</p></a>
-                <a href="category2.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第二类</p></a>
-                <a href="category3.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第三类</p></a>
-                <a href="category4.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第四类</p></a>
-                <a href="category5.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第五类</p></a>
-                <a href="category6.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第六类</p></a>
-                <a href="category7.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第七类</p></a>
-                <a href="category8.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第八类</p></a>
-                
-                
+                <?php 
+                $categories = [
+                    "category1.php" => "第一类",
+                    "category2.php" => "第二类",
+                    "category3.php" => "第三类",
+                    "category4.php" => "第四类",
+                    "category5.php" => "第五类",
+                    "category6.php" => "第六类",
+                    "category7.php" => "第七类",
+                    "category8.php" => "第八类"
+                ];
+
+                foreach ($categories as $link => $name): ?>
+                    <a href="<?= $link ?>" class="category-box">
+                        <img src="image/carousel/fashion1.jpg" alt="<?= $name ?>">
+                        <p><?= $name ?></p>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

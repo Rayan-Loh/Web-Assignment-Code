@@ -169,15 +169,25 @@ html, body {
     padding: 0;
 }
 
+
+@keyframes colorTransition {
+    0% { background-color: rgba(131, 245, 208, 1); } /* 绿色 */
+    50% { background-color: rgba(163, 224, 250, 1); } /* 蓝色 */
+    100% { background-color: rgba(131, 245, 208, 1); } /* 回到绿色 */
+}
+
 .First-Box-Container {
     display: flex;
-    background: linear-gradient(to bottom, rgba(131, 245, 208, 1), rgba(163, 224, 250, 1));
     
     width: 2100px;
     height: 720px;
     margin: 110px auto 0px; /* 上方 110px，左右自动居中 */
 
     border-radius: 20px;
+
+    /* 添加动画 */
+    animation: colorTransition 5s infinite alternate ease-in-out;
+
 
     .carousel{
         display: flex;
