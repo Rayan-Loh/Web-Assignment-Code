@@ -1,5 +1,4 @@
 <?php
-require '../_base.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<form id="registerForm" method="POST" action="../register/index.php" class="login-form">
+<form id="registerForm" method="POST" action="/register" class="login-form">
     <label for="username">Username:</label><input type="text" id="username" name="username" placeholder="username" required>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" placeholder="password" required>
