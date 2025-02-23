@@ -90,9 +90,11 @@ header {
 
 
 footer {
-    position: fixed;
+    position: relative;
     left: 0;
     right: 0;
+    height: 240px;
+    width: 100%;
 
     background: linear-gradient(to right, #8c8c8c 0%, #dcdcdc 50%, #8c8c8c 100%);
     padding: 20px 0;
@@ -143,7 +145,6 @@ footer {
     /* 底部版权信息 */
     .footer-bottom {
         position: fixed;
-        bottom: 0;
         right: 0;
         left: 0;
     
@@ -167,7 +168,6 @@ html, body {
     height: 720px;
     margin: 110px auto 0; /* 上方 110px，左右自动居中 */
 
-    margin: 110px auto 0;
     border-radius: 20px;
 
     .carousel{
@@ -193,6 +193,23 @@ html, body {
     }
 }
 
+.Top-Sales-Container{
+    background-color: #8c8c8c;
+    width: 1920px;
+    height: 400px;
+    margin: 50px auto 0; /* 上方 50px，左右自动居中 */
+
+    color: white;
+}
+
+.Daily-Discover-Container{
+    background-color: grey;
+    width: 1920px;
+    height: 800px;
+    margin: 50px auto 100px; /* 上方 50px 下方 100px，左右自动居中 */
+
+    color: white;
+}
 
 
 .fab {
