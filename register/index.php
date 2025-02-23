@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Example: Store $username and $password in the database
     // ...
 
-    header('Location: ../login/index.php');
+    header('Location: login');
     exit;
 }
 ?>

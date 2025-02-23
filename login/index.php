@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === "admin" && password_verify($password, $hashed_password)) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        header('Location: ../index.php');
+        header('Location: /');
         exit;
     } else {
         $error = 'Invalid username or password';
