@@ -51,7 +51,7 @@ session_start();
 </nav>
 
 <section class="brand-description">
-    <p>test</p>
+    <p>test3</p>
     <h1>About Roxy</h1>
     <p>Roxy is a major women's clothing brand under Quiksilver, established in 1990. Initially starting as a swimwear series, it gradually developed a complete product line, specifically providing products for women who love outdoor sports such as surfing or skiing. Roxy's main concept is 'fun and bold, love sports, fearless, self-style'. In 1993, the Roxy brand logo was designed by merging two Quiksilver logos into a heart shape.</p>
 </section>
