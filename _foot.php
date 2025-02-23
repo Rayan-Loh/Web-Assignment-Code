@@ -3,7 +3,6 @@
         <!-- Social Media -->
         <div class="social-media">
             <div class="social-item">
-                  <a href="https://www.youtube.com/watch?v=AVGH51X-mmY&pp=ygUNdXR0cmFtYW4gdGlnYQ%3D%3D" target="_blank">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube</span>
             </div>
@@ -14,7 +13,6 @@
                 </a>
             </div>
             <div class="social-item">
-                <a href="https://www.facebook.com/" target="_blank">
                 <i class="fab fa-facebook"></i>
                 <span>Facebook</span>
             </div>
