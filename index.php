@@ -28,8 +28,11 @@ session_start();
         </div>
         <div class="icon-container">
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-<!--                TODO: Add user profile page-->
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user" id="userIcon"></i>
+                <div id="userInfoCard" class="user-info-card">
+                    <p>Username: <?php echo $_SESSION['username']; ?></p>
+                    <a href="logout">Logout</a>
+                </div>
             <?php else: ?>
                 <a href="login">Login</a>
             <?php endif; ?>
