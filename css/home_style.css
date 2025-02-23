@@ -91,7 +91,6 @@ header {
 
 footer {
     position: fixed;
-    bottom: 0;
     left: 0;
     right: 0;
 
@@ -166,18 +165,18 @@ html, body {
     background: linear-gradient(to bottom, rgba(131, 245, 208, 1), rgba(163, 224, 250, 1));
     
     width: 1920px;
-    height: 360px;
+    height: 720px;
     margin: 110px auto 0; /* 上方 110px，左右自动居中 */
 
     margin-top: 110px;
     border-radius: 20px;
 
-    .轮播{
+    .carousel{
         display: flex;
         justify-content: center;
         align-items: center;
 
-        background-color: gray;
+        background: transparent;
         aspect-ratio: 16 / 9; 
         height: 100%;
         max-width: 100%;
@@ -186,6 +185,7 @@ html, body {
         img{
             width: 80%;
             height: 80%;
+            margin-right: 6%;
 
             border-radius: 20px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
@@ -205,7 +205,8 @@ html, body {
     &.fa-youtube { color: #FF0000; }
     &.fa-instagram { 
         background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
-        -webkit-background-clip: text;
+        background-clip: text; /* 标准写法 */
+        -webkit-background-clip: text; /* 兼容 WebKit 内核浏览器 (Chrome, Safari) */
         -webkit-text-fill-color: transparent;
     }
     &.fa-facebook { color: #1877F2; }
