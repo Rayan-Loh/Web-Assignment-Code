@@ -12,7 +12,7 @@ session_start();
 <header>
     <div class="ROXYS">
         <img src="/image/web_icon.png" alt="Roxy Logo">
-        <p style="font-family: 'Custom1', serif;">ROXY'S</p>
+        <p>ROXY'S</p>
     </div>
     <div class="search-container">
         <i class="fas fa-search"></i>

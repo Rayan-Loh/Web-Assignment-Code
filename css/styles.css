@@ -10,21 +10,6 @@ body {
     height: 100vh;
 }
 
-/* Default White theme color */
-body {
-    background-color: white;
-    color: black;
-}
-
-/* Dark theme color */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-        color: white;
-    }
-}
-
-
 /* Login page styles */
 .login-container {
     background: white;
