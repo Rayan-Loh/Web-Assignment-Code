@@ -11,13 +11,13 @@ session_start();
 <body>
 <header>
     <div class="ROXYS">
-        <img src="image/1740232192815.png" alt="Roxy Logo">
+        <img src="/image/web_icon.png" alt="Roxy Logo">
         <p style="font-family: 'Custom1', serif;">ROXY'S</p>
     </div>
     <div class="search-container">
         <i class="fas fa-search"></i>
-        <label>
-            <input type="text" placeholder="Search" class="search-bar">
+        <label class="search-bar">
+            <input type="text" placeholder="Search" >
         </label>
     </div>
     <div class="right-icon">
@@ -45,10 +45,15 @@ session_start();
 <nav>
     <div class="First-Box-Container">
         <div class="carousel">
-            <img src="image/fashion1.jpg" alt="Fashion Image">
+            <button class="prev-button">&#10094;</button>
+            <img id="carousel-image" src="image/fashion1.jpg" alt="">
+            <button class="next-button">&#10095;</button>
         </div>
     </div>
+    <script src="/js/carousel.js"></script>
+
 </nav>
+
 
 <section class="brand-description">
     <h1>About Roxy</h1>
