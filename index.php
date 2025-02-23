@@ -44,7 +44,7 @@ session_start();
 
 <nav>
     <div class="First-Box-Container">
-        <div class="轮播">
+        <div class="carousel">
             <img src="image/fashion1.jpg" alt="Fashion Image">
         </div>
     </div>
