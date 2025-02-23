@@ -2,6 +2,11 @@
 require '../_base.php';
 session_start();
 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    header('Location: /');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -33,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <form id="loginForm" method="POST" action="/login/index.php" class="login-form">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <input type="text" id="username" name="username" placeholder="username" required>
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" placeholder="password" required>
     <button type="submit">Login</button>
     <?php if (isset($error)): ?>
         <p><?php echo $error; ?></p>
