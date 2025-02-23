@@ -1,5 +1,6 @@
 <?php
 require '_base.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +22,18 @@ require '_base.php';
     </div>
     <div class="right-icon">
         <div class="icon-container">
-            <i class="fas fa-shopping-cart"></i>
+            <a href="cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
         </div>
         <div class="icon-container">
-            <i class="fas fa-user"></i>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <a href="cart">
+                    <i class="fas fa-user"></i>
+                </a>
+            <?php else: ?>
+                <a href="login">Login</a>
+            <?php endif; ?>
         </div>
     </div>
 </header>
