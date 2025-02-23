@@ -34,7 +34,9 @@ session_start();
                     <a href="logout">Logout</a>
                 </div>
             <?php else: ?>
-                <a href="login">Login</a>
+                <a href="login">
+                    <i class="fas fa-user"></i>
+                </a>
             <?php endif; ?>
         </div>
     </div>
