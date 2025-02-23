@@ -9,6 +9,7 @@ header {
     display: flex;
     align-items: center;  /* 垂直居中 */
     justify-content: space-between; /* 左右两侧对齐，内部元素保持间距 */
+    z-index: 100;
 }
 
 .ROXYS{
@@ -169,11 +170,12 @@ html, body {
 }
 
 .First-Box-Container {
+    display: flex;
     background: linear-gradient(to bottom, rgba(131, 245, 208, 1), rgba(163, 224, 250, 1));
     
-    width: 1920px;
+    width: 2100px;
     height: 720px;
-    margin: 110px auto 0; /* 上方 110px，左右自动居中 */
+    margin: 110px auto 0px; /* 上方 110px，左右自动居中 */
 
     border-radius: 20px;
 
@@ -185,6 +187,9 @@ html, body {
         background: transparent;
         aspect-ratio: 16 / 9; 
         height: 100%;
+
+        position: relative;
+        right: 50px;
         
         img{
             object-fit: cover;
@@ -231,13 +236,81 @@ html, body {
         opacity: 1;
         transition: opacity 0.2s ease-in-out; /* 添加过渡效果 */
     }
+
+    .category-container {
+        position: relative;
+        right: 80px;
+        top: 40px;
+        height: 90%;
+        width: 45%;
+
+        p{
+            color: black;
+            margin-top: 0;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .category {
+            position:relative;
+
+            display: flex;
+            flex-wrap: wrap; /* 允许换行 */
+            align-content:start;
+            justify-content: space-between;
+            
+            gap: 15px;
+            row-gap: 100px;
+
+            height: 500px;
+
+            .category-box {
+                border-radius: 20px;
+                width: 170px;
+                height: 170px;
+                display: flex;
+                flex-direction: column; /* 让子元素垂直排列 */
+                justify-content: start; /* 子元素靠上对齐 */
+                align-items: center; /* 水平居中 */
+
+                text-decoration: none;            
+
+            
+                img {
+                    border-radius: 20px;
+                    width: 100%;
+                    aspect-ratio: 1;
+                    object-fit: cover;
+                    transition: transform 0.2s ease-out;
+                    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+                }
+                
+                p {
+
+                    margin-top: 20px;
+                    color: gray;
+                    font-size: 24px;
+                    font-weight: normal;
+                    transition: color 0.2s ease-out;
+                }
+            }
+
+            .category-box:hover img {
+                transform: scale(1.1);
+            }
+            .category-box:hover p {
+                color: black; 
+            }
+        }
+    }
 }
 
 
 
 .Top-Sales-Container{
     background-color: #8c8c8c;
-    width: 1920px;
+    width: 2100px;
     height: 400px;
     margin: 50px auto 0; /* 上方 50px，左右自动居中 */
 
@@ -246,7 +319,7 @@ html, body {
 
 .Daily-Discover-Container{
     background-color: grey;
-    width: 1920px;
+    width: 2100px;
     height: 800px;
     margin: 50px auto 100px; /* 上方 50px 下方 100px，左右自动居中 */
 

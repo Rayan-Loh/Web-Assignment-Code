@@ -46,8 +46,24 @@ session_start();
     <div class="First-Box-Container">
         <div class="carousel">
             <button class="prev-button">&#10094;</button>
-            <img id="carousel-image" src="image/fashion1.jpg" alt="">
+            <img id="carousel-image" src="image/carousel/fashion1.jpg" alt="">
             <button class="next-button">&#10095;</button>
+        </div>
+
+        <div class="category-container">
+            <p>Category</p>
+            <div class="category">
+                <a href="category1.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第一类</p></a>
+                <a href="category2.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第二类</p></a>
+                <a href="category3.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第三类</p></a>
+                <a href="category4.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第四类</p></a>
+                <a href="category5.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第五类</p></a>
+                <a href="category6.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第六类</p></a>
+                <a href="category7.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第七类</p></a>
+                <a href="category8.php" class="category-box"><img src="image/carousel/fashion1.jpg"><p>第八类</p></a>
+                
+                
+            </div>
         </div>
     </div>
     <script src="/js/carousel.js"></script>

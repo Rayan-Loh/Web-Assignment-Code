@@ -1,9 +1,9 @@
 const images = [
-    "image/fashion1.jpg",
-    "image/fashion2.png",
-    "image/fashion3.png",
-    "image/fashion4.jpg",
-    "image/fashion5.png"
+    "image/carousel/fashion1.jpg",
+    "image/carousel/fashion2.png",
+    "image/carousel/fashion3.png",
+    "image/carousel/fashion4.jpg",
+    "image/carousel/fashion5.png"
 ];
 
 let currentIndex = 0;
