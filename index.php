@@ -28,9 +28,8 @@ session_start();
         </div>
         <div class="icon-container">
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <a href="cart">
-                    <i class="fas fa-user"></i>
-                </a>
+<!--                TODO: Add user profile page-->
+                <i class="fas fa-user"></i>
             <?php else: ?>
                 <a href="login">Login</a>
             <?php endif; ?>

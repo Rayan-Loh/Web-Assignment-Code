@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="password" id="password" name="password" required>
     <button type="submit">Login</button>
     <?php if (isset($error)): ?>
+        <p><?php echo $error; ?></p>
     <?php endif; ?>
 </form>
-<script src="../js/login.js"></script>
 </body>
 </html>
