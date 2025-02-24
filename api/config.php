@@ -1,9 +1,9 @@
 <?php
 return [
-    'type' => 'sqlite', // 'mysql' or 'sqlite'
+    'type' => 'mysql', // 'mysql' or 'sqlite'
     'host' => 'localhost',
-    'dbname' => 'database_name',
-    'username' => 'username',
-    'password' => 'password',
+    'dbname' => 'Web-Assignment-Code',
+    'username' => 'Web-Assignment-Code',
+    'password' => '123456',
     'path' => 'database.sqlite' // Only for SQLite
 ];
