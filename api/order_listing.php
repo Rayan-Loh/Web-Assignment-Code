@@ -5,40 +5,26 @@ $dbConfig = require 'config.php';
 $db = new Database($dbConfig);
 $conn = $db->getConnection();
 
-$query = $conn->query("SELECT * FROM orders");
-$orders = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
+// Pagination parameters
+$page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, ['options' => ['default' => 1, 'min_range' => 1]]);
+$limit = filter_input(INPUT_GET, 'limit', FILTER_VALIDATE_INT, ['options' => ['default' => 10, 'min_range' => 1, 'max_range' => 100]]);
+$offset = ($page - 1) * $limit;
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order Listing</title>
-</head>
-<body>
-<h1>Order Listing</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Order ID</th>
-        <th>Member ID</th>
-        <th>Product ID</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
-        <th>Order Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($orders as $order): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($order['order_id']); ?></td>
-            <td><?php echo htmlspecialchars($order['member_id']); ?></td>
-            <td><?php echo htmlspecialchars($order['product_id']); ?></td>
-            <td><?php echo htmlspecialchars($order['total_price']); ?></td>
-            <td><?php echo htmlspecialchars($order['order_date']); ?></td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
-</body>
-</html>
+// Get total count of orders
+$totalQuery = $conn->query("SELECT COUNT(*) as total FROM orders");
+$total = $totalQuery->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Fetch paginated orders
+$query = $conn->prepare("SELECT * FROM orders LIMIT :limit OFFSET :offset");
+$query->bindParam(':limit', $limit, PDO::PARAM_INT);
+$query->bindParam(':offset', $offset, PDO::PARAM_INT);
+$query->execute();
+$orders = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Return JSON response
+echo json_encode([
+    'page' => $page,
+    'limit' => $limit,
+    'total' => $total,
+    'orders' => $orders
+]);

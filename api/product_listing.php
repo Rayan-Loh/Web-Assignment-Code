@@ -5,36 +5,27 @@ $dbConfig = require 'config.php';
 $db = new Database($dbConfig);
 $conn = $db->getConnection();
 
-$query = $conn->query("SELECT * FROM products");
-$products = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
+// Pagination parameters
+$page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, ['options' => ['default' => 1, 'min_range' => 1]]);
+$limit = filter_input(INPUT_GET, 'limit', FILTER_VALIDATE_INT, ['options' => ['default' => 10, 'min_range' => 1, 'max_range' => 100]]);
+$offset = ($page - 1) * $limit;
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Product Listing</title>
-</head>
-<body>
-<h1>Product Listing</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($products as $product): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($product['product_id']); ?></td>
-            <td><?php echo htmlspecialchars($product['name']); ?></td>
-            <td><?php echo htmlspecialchars($product['price']); ?></td>
-            <td><?php echo htmlspecialchars($product['stock']); ?></td>
-        </tr>
-    <?php endforeach; ?>
-</body>
-</html>
+// Get total count of products
+$totalQuery = $conn->query("SELECT COUNT(*) as total FROM products");
+$total = $totalQuery->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Fetch paginated products
+$query = $conn->prepare("SELECT * FROM products LIMIT :limit OFFSET :offset");
+$query->bindParam(':limit', $limit, PDO::PARAM_INT);
+$query->bindParam(':offset', $offset, PDO::PARAM_INT);
+$query->execute();
+$products = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Return JSON response
+header('Content-Type: application/json');
+echo json_encode([
+    'page' => $page,
+    'limit' => $limit,
+    'total' => $total,
+    'products' => $products
+]);

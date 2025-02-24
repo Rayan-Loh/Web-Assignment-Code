@@ -5,37 +5,27 @@ $dbConfig = require 'config.php';
 $db = new Database($dbConfig);
 $conn = $db->getConnection();
 
-$query = $conn->query("SELECT * FROM members");
-$members = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
+// Pagination parameters
+$page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, ['options' => ['default' => 1, 'min_range' => 1]]);
+$limit = filter_input(INPUT_GET, 'limit', FILTER_VALIDATE_INT, ['options' => ['default' => 10, 'min_range' => 1, 'max_range' => 100]]);
+$offset = ($page - 1) * $limit;
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Member Listing</title>
-</head>
-<body>
-<h1>Member Listing</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Member ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Join Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($members as $member): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($member['member_id']); ?></td>
-            <td><?php echo htmlspecialchars($member['name']); ?></td>
-            <td><?php echo htmlspecialchars($member['email']); ?></td>
-            <td><?php echo htmlspecialchars($member['join_date']); ?></td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
-</body>
-</html>
+// Get total count of members
+$totalQuery = $conn->query("SELECT COUNT(*) as total FROM members");
+$total = $totalQuery->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Fetch paginated members
+$query = $conn->prepare("SELECT * FROM members LIMIT :limit OFFSET :offset");
+$query->bindParam(':limit', $limit, PDO::PARAM_INT);
+query->bindParam(':offset', $offset, PDO::PARAM_INT);
+$query->execute();
+$members = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Return JSON response
+header('Content-Type: application/json');
+echo json_encode([
+    'page' => $page,
+    'limit' => $limit,
+    'total' => $total,
+    'members' => $members
+]);
