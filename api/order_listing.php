@@ -1,6 +1,13 @@
 <?php
 require 'Database.php';
 $dbConfig = require 'config.php';
+session_start();
+
+// if not admin user, return 401 Unauthorized
+if ($_SESSION['username'] !== 'admin') {
+    echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
+    exit();
+}
 
 $db = new Database($dbConfig);
 $conn = $db->getConnection();

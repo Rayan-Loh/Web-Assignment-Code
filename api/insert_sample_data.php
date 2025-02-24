@@ -1,6 +1,13 @@
 <?php
 require 'Database.php';
 $dbConfig = require 'config.php';
+session_start();
+
+// if not admin user, return 401 Unauthorized
+if ($_SESSION['username'] !== 'admin') {
+    echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
+    exit();
+}
 
 $db = new Database($dbConfig);
 $conn = $db->getConnection();
@@ -55,4 +62,4 @@ $conn->exec("INSERT INTO orders (order_id, member_id, product_id, quantity, tota
     (3, 3, 3, 3, 90.00, '2023-04-03')
 ");
 
-echo "Sample data inserted successfully.";
+echo json_encode(['message' => 'Sample data inserted successfully']);
