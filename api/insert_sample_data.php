@@ -15,6 +15,7 @@ $conn = $db->getConnection();
 
 // Create tables if not exists
 $db->createTables();
+$db->createAccessTokenTable();
 
 // Insert sample data for members
 $conn->exec("INSERT INTO members (name, email, join_date) VALUES
