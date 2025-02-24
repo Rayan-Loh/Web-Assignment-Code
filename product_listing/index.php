@@ -1,7 +1,25 @@
 <?php
 session_start();
-// Fetch data from API
-$response = file_get_contents('http://web-assignment-code.local/api/product_listing.php?page=1&limit=10&access_token=mock:your_secret_key');
+
+// Initialize cURL session
+$ch = curl_init();
+
+// Set the URL
+curl_setopt($ch, CURLOPT_URL, 'http://web-assignment-code.local/api/product_listing.php?page=1&limit=10');
+
+// Enable the option to return the response as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Include cookies in the request
+curl_setopt($ch, CURLOPT_COOKIE, http_build_query($_COOKIE, '', '; '));
+
+// Execute the cURL request
+$response = curl_exec($ch);
+
+// Close the cURL session
+curl_close($ch);
+
+// Decode the JSON response
 $data = json_decode($response, true);
 
 // Check if data is fetched successfully

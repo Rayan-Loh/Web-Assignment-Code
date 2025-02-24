@@ -75,6 +75,24 @@ class Database {
         }
     }
 
+    public function createAccessTokenTable() {
+        if ($this->type === 'mysql') {
+            $this->conn->exec("CREATE TABLE IF NOT EXISTS access_tokens (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(255) NOT NULL,
+            token VARCHAR(255) NOT NULL,
+            expires_at DATETIME NOT NULL
+        )");
+        } elseif ($this->type === 'sqlite') {
+            $this->conn->exec("CREATE TABLE IF NOT EXISTS access_tokens (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            token TEXT NOT NULL,
+            expires_at DATETIME NOT NULL
+        )");
+        }
+    }
+
     public function fetchAll($table, $limit, $offset) {
         $query = $this->conn->prepare("SELECT * FROM $table LIMIT :limit OFFSET :offset");
         $query->bindParam(':limit', $limit, PDO::PARAM_INT);

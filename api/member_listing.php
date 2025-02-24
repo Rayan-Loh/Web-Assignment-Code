@@ -3,8 +3,8 @@ require 'Database.php';
 $dbConfig = require 'config.php';
 
 // access_token for authentication
-$access_token = filter_input(INPUT_GET, 'access_token');
-if ($access_token !== 'mock:your_secret_key') {
+$access_token = $_COOKIE['access_token'] ?? '';
+if (!$access_token) {
     header('HTTP/1.1 401 Unauthorized');
     echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
     exit;
@@ -12,6 +12,28 @@ if ($access_token !== 'mock:your_secret_key') {
 
 $db = new Database($dbConfig);
 $conn = $db->getConnection();
+
+// Validate access_token
+$stmt = $conn->prepare("SELECT * FROM access_tokens WHERE token = :token AND expires_at > NOW()");
+$stmt->execute([':token' => $access_token]);
+$tokenData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$tokenData) {
+    header('HTTP/1.1 401 Unauthorized');
+    echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
+    exit;
+}
+
+// Validate access_token
+$stmt = $conn->prepare("SELECT * FROM access_tokens WHERE token = :token AND expires_at > NOW()");
+$stmt->execute([':token' => $access_token]);
+$tokenData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$tokenData) {
+    header('HTTP/1.1 401 Unauthorized');
+    echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
+    exit;
+}
 
 // Pagination parameters
 $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, ['options' => ['default' => 1, 'min_range' => 1]]);
