@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 页面加载完成后
     const searchInput = document.getElementById("searchInput");
     const searchHistory = document.getElementById("searchHistory");
 
-    let history = JSON.parse(localStorage.getItem("searchHistory")) || []; // 读取历史记录
+    let history = JSON.parse(localStorage.getItem("searchHistory")) || []; 
+    let selectedIndex = -1; // 追踪选中的历史索引
 
-    // 显示搜索历史
     function showSearchHistory() {
-        searchHistory.innerHTML = ""; // 清空旧内容
+        searchHistory.innerHTML = "";
         if (history.length === 0) {
             searchHistory.style.display = "none";
             return;
@@ -16,31 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
         history.forEach((item, index) => {
             const div = document.createElement("div");
             div.classList.add("search-history-item");
+            if (index === selectedIndex) {
+                div.classList.add("selected"); // 高亮选中项
+            }
 
-            // 历史记录图标
             const icon = document.createElement("i");
             icon.classList.add("fas", "fa-history");
 
-            // 搜索记录
             const text = document.createElement("span");
             text.textContent = item;
 
-            // 删除icon
             const deleteIcon = document.createElement("i");
-            deleteIcon.classList.add("fas","fa-times","delete-icon");
+            deleteIcon.classList.add("fas", "fa-times", "delete-icon");
 
-            deleteIcon.addEventListener("click", (event)=>{
-                event.stopPropagation(); // 阻止事件冒泡，防止触发记录填充
-                history.splice(index, 1); // 删除记录
-                localStorage.setItem("searchHistory",JSON.stringify(history));
-                showSearchHistory(); // 重渲
+            deleteIcon.addEventListener("click", (event) => {
+                event.stopPropagation();
+                history.splice(index, 1);
+                localStorage.setItem("searchHistory", JSON.stringify(history));
+                selectedIndex = -1; // 重置选中索引
+                showSearchHistory();
             });
 
             div.addEventListener("mouseenter", () => {
-                deleteIcon.style.opacity = 1; // 显示打叉
+                deleteIcon.style.opacity = 1;
             });
             div.addEventListener("mouseleave", () => {
-                deleteIcon.style.opacity = 0; // 隐藏打叉
+                deleteIcon.style.opacity = 0;
             });
 
             div.appendChild(icon);
@@ -48,8 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
             div.appendChild(deleteIcon);
 
             div.addEventListener("click", () => {
-                searchInput.value = item; // 点击历史记录自动填充
+                searchInput.value = item;
                 searchHistory.style.display = "none";
+                selectedIndex = -1;
             });
 
             searchHistory.appendChild(div);
@@ -58,28 +59,51 @@ document.addEventListener("DOMContentLoaded", function () {
         searchHistory.style.display = "block";
     }
 
-    // 监听输入框的 focus 事件
-    searchInput.addEventListener("focus", showSearchHistory);
+    searchInput.addEventListener("focus", () => {
+        selectedIndex = -1; // 重新聚焦时重置索引
+        showSearchHistory();
+    });
 
-    // 监听键盘事件
     searchInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" && searchInput.value.trim() !== "") {
-            const value = searchInput.value.trim();
-
-            // 避免重复记录
-            if (!history.includes(value)) {
-                history.unshift(value); // 新记录添加到最前面
-                if (history.length > 10) {
-                    history.pop(); // 限制最大 10 条
-                }
-                localStorage.setItem("searchHistory", JSON.stringify(history));
+        if (event.key === "ArrowDown") {
+            event.preventDefault(); 
+            if (selectedIndex < history.length - 1) {
+                selectedIndex++;
+            } else {
+                selectedIndex = 0;
             }
-
-            searchHistory.style.display = "none"; // 隐藏历史
+            showSearchHistory();
+        } 
+        else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            if (selectedIndex >= 0) {
+                selectedIndex--;
+            }
+            showSearchHistory();
+        } 
+        else if (event.key === "Enter") {
+            if (selectedIndex >= 0 && selectedIndex < history.length) {
+                searchInput.value = history[selectedIndex];
+                searchHistory.style.display = "none";
+            } else if (searchInput.value.trim() !== "") {
+                const value = searchInput.value.trim();
+                if (!history.includes(value)) {
+                    history.unshift(value);
+                    if (history.length > 10) {
+                        history.pop();
+                    }
+                    localStorage.setItem("searchHistory", JSON.stringify(history));
+                }
+            }
+            selectedIndex = -1; 
+        } 
+        else if (event.key === "Backspace" && searchInput.value.length === 1) {
+            showSearchHistory();
+        } else {
+            searchHistory.style.display = "none";
         }
     });
 
-    // 点击页面其他地方时隐藏搜索历史
     document.addEventListener("click", function (event) {
         if (!searchInput.contains(event.target) && !searchHistory.contains(event.target)) {
             searchHistory.style.display = "none";
