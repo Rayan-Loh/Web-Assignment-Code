@@ -45,8 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Set access_token cookie
         setcookie('access_token', $access_token, time() + 86400, '/');
 
-//        header('Location: /');
-        echo $access_token;
+        header('Location: /');
         exit;
     } else {
         $error = 'Invalid username or password';
