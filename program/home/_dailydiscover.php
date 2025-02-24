@@ -16,7 +16,7 @@ $products = [
 
 // Item Price (价格和商品页面link，因为商品页面是唯一的)
 $prices = [
-    "product1.php" => "¥25"
+    "product1.php" => 25
 ];
 
 ?>
@@ -32,7 +32,7 @@ $prices = [
                 </div>
                 <p class="product-name"><?= htmlspecialchars($product['name']) ?></p>
                 <?php if (isset($prices[$product['link']])): ?>
-                    <p class="product-price"><?= $prices[$product['link']] ?></p>
+                    <p class="product-price">RM <?= $prices[$product['link']] ?></p>
                 <?php endif; ?>
                 <p class="sold-count"><?= htmlspecialchars($product['sold']) ?></p>
             </a>

@@ -91,41 +91,41 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display:block;
     z-index: 10; /* 高于serach bar */
-}
 
-.search-history-item {
-    display: flex; /* 使用 flexbox 布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: space-between; /* 两端对齐 */
-    padding: 15px;
-    background: white;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-    position: relative;
-    border: none;
-}
+    .search-history-item {
+        display: flex; /* 使用 flexbox 布局 */
+        align-items: center; /* 垂直居中 */
+        justify-content: space-between; /* 两端对齐 */
+        padding: 15px;
+        background: white;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        border: none;
+    }
 
-.search-history-item span{
-    font-size: 30px;
-}
-
-.search-history-item:hover{
-    background: #f0f0f0;
-}
-
-.search-history-item i.fa-history {
-    margin-right: 10px; /* 让历史图标与文字有间距 */
-    color: gray;
-}
-
-.delete-icon {
-    margin-left: auto; /* 让删除按钮自动推到最右 */
-    padding: 5px;
-    cursor: pointer;
-    color: red;
-    opacity: 0; /* 默认隐藏 */
-    transition: opacity 0.1s ease-in-out;
-    padding-right: 20px;
+    .search-history-item span{
+        font-size: 30px;
+    }
+    
+    .search-history-item:hover{
+        background: #f0f0f0;
+    }
+    
+    .search-history-item i.fa-history {
+        margin-right: 10px; /* 让历史图标与文字有间距 */
+        color: gray;
+    }
+    
+    .delete-icon {
+        margin-left: auto; /* 让删除按钮自动推到最右 */
+        padding: 5px;
+        cursor: pointer;
+        color: red;
+        opacity: 0; /* 默认隐藏 */
+        transition: opacity 0.1s ease-in-out;
+        padding-right: 20px;
+    }
 }
 
 
@@ -146,18 +146,19 @@ header {
         justify-content: center;
         align-items: center;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-        cursor: pointer;
     }
 
     /* 调整图标大小和颜色 */
     .icon-container i {
         font-size: 30px;
         color: black;
+        cursor: pointer;
     }
 
     span{
         font-size: 48px;
         color: black;
+        cursor: pointer;
     }
 
     a{
@@ -418,6 +419,10 @@ html{
         text-decoration: none;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 
+        transition: transform 0.2s ease-out;
+    }
+    .sales-item:hover{
+        transform: scale(1.05);
     }
     .image-container {
         position: relative;
@@ -507,7 +512,7 @@ html{
         column-gap: 40px;
         margin: 10px 20px 10px 20px;
     }
-    
+
     .sales-item {
 
         width: 360px; /* 统一宽度 */
@@ -520,6 +525,11 @@ html{
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 
         padding: 10px;
+
+        transition: transform 0.2s ease-out;
+    }
+    .sales-item:hover{
+        transform: scale(1.05);
     }
     
     .image-container {

@@ -33,7 +33,7 @@
                 </a>
             <?php endif; ?>
         </div>
-        <a href="cart"><span>Account</span></a>
+        <a href="login"><span>Account</span></a>
     </div>
     <script src="/js/header.js" defer></script>
 </header>
