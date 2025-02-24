@@ -5,6 +5,7 @@
             <img id="carousel-image" src="image/carousel/fashion1.jpg" alt="">
             <button class="next-button">&#10095;</button>
         </div>
+        <script src="/js/carousel.js"></script>
 
         <div class="category-container">
             <p>Category</p>
@@ -30,6 +31,4 @@
             </div>
         </div>
     </div>
-    <script src="/js/carousel.js"></script>
-
 </nav>

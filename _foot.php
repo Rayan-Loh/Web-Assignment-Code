@@ -3,8 +3,10 @@
         <!-- Social Media -->
         <div class="social-media">
             <div class="social-item">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
             </div>
             <div class="social-item">
                 <a href="https://www.instagram.com/" target="_blank">
@@ -13,8 +15,10 @@
                 </a>
             </div>
             <div class="social-item">
-                <i class="fab fa-facebook"></i>
-                <span>Facebook</span>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
             </div>
         </div>
 
@@ -43,11 +47,9 @@
         <!-- Customer Service -->
         <div class="customer-service">
             <div class="contact-item">
-                <a href="" target="_blank">
-                    <i class="fas fa-phone"></i>
-                    <span>Contact Us</span>
-                    <p>012-3456789</p>
-                </a>
+                <i class="fas fa-phone"></i>
+                <span>Contact Us</span>
+                <p>012-3456789</p>
             </div>
             <div class="contact-item">
                 <a href="https://www.tiktok.com" target="_blank">
