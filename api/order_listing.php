@@ -1,12 +1,13 @@
 <?php
 require 'Database.php';
 $dbConfig = require 'config.php';
-session_start();
 
-// if not admin user, return 401 Unauthorized
-if ($_SESSION['username'] !== 'admin') {
+// access_token for authentication
+$access_token = filter_input(INPUT_GET, 'access_token');
+if ($access_token !== 'mock:your_secret_key') {
+    header('HTTP/1.1 401 Unauthorized');
     echo json_encode(['code' => 401, 'message' => 'Unauthorized']);
-    exit();
+    exit;
 }
 
 $db = new Database($dbConfig);
@@ -18,17 +19,13 @@ $limit = filter_input(INPUT_GET, 'limit', FILTER_VALIDATE_INT, ['options' => ['d
 $offset = ($page - 1) * $limit;
 
 // Get total count of orders
-$totalQuery = $conn->query("SELECT COUNT(*) as total FROM orders");
-$total = $totalQuery->fetch(PDO::FETCH_ASSOC)['total'];
+$total = $db->fetchCount('orders');
 
 // Fetch paginated orders
-$query = $conn->prepare("SELECT * FROM orders LIMIT :limit OFFSET :offset");
-$query->bindParam(':limit', $limit, PDO::PARAM_INT);
-$query->bindParam(':offset', $offset, PDO::PARAM_INT);
-$query->execute();
-$orders = $query->fetchAll(PDO::FETCH_ASSOC);
+$orders = $db->fetchAll('orders', $limit, $offset);
 
 // Return JSON response
+header('Content-Type: application/json');
 echo json_encode([
     'page' => $page,
     'limit' => $limit,

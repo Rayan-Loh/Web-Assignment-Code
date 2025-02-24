@@ -1,6 +1,7 @@
 <?php
+session_start();
 // Fetch data from API
-$response = file_get_contents('http://web-assignment-code.local/api/product_listing.php?page=1&limit=10');
+$response = file_get_contents('http://web-assignment-code.local/api/product_listing.php?page=1&limit=10&access_token=mock:your_secret_key');
 $data = json_decode($response, true);
 
 // Check if data is fetched successfully
