@@ -34,37 +34,6 @@ if ($data && isset($data['members'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Product Listing</title>
-</head>
-<body>
-<h1>Product Listing</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($members as $member): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($member['name']); ?></td>
-            <td><?php echo htmlspecialchars($member['description']); ?></td>
-            <td><?php echo htmlspecialchars($member['stock']); ?></td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
     <title>Member Listing</title>
 </head>
 <body>
