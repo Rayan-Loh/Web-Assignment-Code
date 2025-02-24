@@ -90,33 +90,42 @@ header {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display:block;
-    z-index: -10; /* 低于serach bar */
+    z-index: 10; /* 高于serach bar */
 }
 
-/* 每条搜索记录 */
 .search-history-item {
-    display: flex; /* 让图标和文字在同一行 */
+    display: flex; /* 使用 flexbox 布局 */
     align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 两端对齐 */
     padding: 15px;
-    font-size: 30px;
+    background: white;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
+    position: relative;
+    border: none;
 }
 
-.search-history-item:last-child {
-    border-bottom: none;
-}
-
-/* 历史记录图标 */
-.search-history-item i {
-    color: gray;
+.search-history-item span{
     font-size: 30px;
-    margin-right: 30px; /* 图标和文本间距 */
 }
 
-/* 悬停时高亮 */
-.search-history-item:hover {
+.search-history-item:hover{
     background: #f0f0f0;
+}
+
+.search-history-item i.fa-history {
+    margin-right: 10px; /* 让历史图标与文字有间距 */
+    color: gray;
+}
+
+.delete-icon {
+    margin-left: auto; /* 让删除按钮自动推到最右 */
+    padding: 5px;
+    cursor: pointer;
+    color: red;
+    opacity: 0; /* 默认隐藏 */
+    transition: opacity 0.1s ease-in-out;
+    padding-right: 20px;
 }
 
 

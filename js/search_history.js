@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // 页面加载完成后
     const searchInput = document.getElementById("searchInput");
     const searchHistory = document.getElementById("searchHistory");
 
@@ -12,19 +13,39 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        history.forEach((item) => {
+        history.forEach((item, index) => {
             const div = document.createElement("div");
             div.classList.add("search-history-item");
 
-            // 添加历史记录图标
+            // 历史记录图标
             const icon = document.createElement("i");
             icon.classList.add("fas", "fa-history");
 
+            // 搜索记录
             const text = document.createElement("span");
             text.textContent = item;
 
+            // 删除icon
+            const deleteIcon = document.createElement("i");
+            deleteIcon.classList.add("fas","fa-times","delete-icon");
+
+            deleteIcon.addEventListener("click", (event)=>{
+                event.stopPropagation(); // 阻止事件冒泡，防止触发记录填充
+                history.splice(index, 1); // 删除记录
+                localStorage.setItem("searchHistory",JSON.stringify(history));
+                showSearchHistory(); // 重渲
+            });
+
+            div.addEventListener("mouseenter", () => {
+                deleteIcon.style.opacity = 1; // 显示打叉
+            });
+            div.addEventListener("mouseleave", () => {
+                deleteIcon.style.opacity = 0; // 隐藏打叉
+            });
+
             div.appendChild(icon);
             div.appendChild(text);
+            div.appendChild(deleteIcon);
 
             div.addEventListener("click", () => {
                 searchInput.value = item; // 点击历史记录自动填充
