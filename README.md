@@ -10,7 +10,7 @@ Mock user info:
 
 
 
-<<< Project functionality overview >>>
+< Project functionality overview >
 --以下是拿高分需要的基础功能--
 Register/ Login/ Logout
 -
