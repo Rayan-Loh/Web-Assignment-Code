@@ -10,28 +10,28 @@ Mock user info:
 
 
 
-< Project functionality overview >
+Project functionality overview
 --以下是拿高分需要的基础功能--
-Register/ Login/ Logout
--
+1) Register/ Login/ Logout
+-none
 
 --以下是拿高分需要的额外功能，部分可选，可以磨练下自己--
-Register/ Login/ Logout
+1) Register/ Login/ Logout
 -email verify
 -captcha(optional)
 -block user(optional)
 
-Purchase
+2) Purchase
 -discount coupon
 -points system(optional)
 
-Item
+3) Item
 -category
 -multiple photo
 -item storage, low stack warning(optional)
 -review, rating(optional)
 
-Shopping
+4) Shopping
 -carousel
 -save shopping cart permanently(optional)
 -product favourites(optional)
