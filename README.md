@@ -12,7 +12,7 @@ Mock user info:
 
 # 🛒 Project Functionality Overview
 
-## ✅ 基础功能（必须实现，高分必备）
+## ✅ 基础功能
 ### 1️⃣ Register / Login / Logout
 - **用户注册、登录、登出**
 - **用户名验证**（确保唯一性）
@@ -53,9 +53,9 @@ Mock user info:
 
 ---
 
-## ⭐ 额外功能（可选，实现可拿高分）
-### 1️⃣ Register / Login / Logout（增强用户安全）
-- **邮件验证**（注册后需验证邮箱）
+## ⭐ 额外功能（部分可选，可以磨练一下自己(❁´◡`❁)）
+### 1️⃣ Register / Login / Logout
+- **邮件验证**
 - **验证码（Captcha）**（可选）
 - **临时封锁用户**（连续 3 次登录失败后短时间禁用，防止暴力破解）
 
