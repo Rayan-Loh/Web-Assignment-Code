@@ -10,30 +10,71 @@ Mock user info:
 
 
 
-Project functionality overview
---以下是拿高分需要的基础功能--
-1) Register/ Login/ Logout
--none
+# 🛒 Project Functionality Overview
 
---以下是拿高分需要的额外功能，部分可选，可以磨练下自己--
-1) Register/ Login/ Logout
--email verify
--captcha(optional)
--block user(optional)
+## ✅ 基础功能（必须实现，高分必备）
+### 1️⃣ Register / Login / Logout
+- **用户注册、登录、登出**
+- **用户名验证**（确保唯一性）
+- **密码安全**（密码哈希加密，如 `password_hash()`）
+- **服务器端输入验证**（防止 SQL 注入和 XSS）
 
-2) Purchase
--discount coupon
--points system(optional)
+### 2️⃣ Account（用户账户管理）
+- **用户个人资料**
+  - **上传头像**
+  - **编辑个人信息**
+  - **修改地址**
+- **购买历史**
+  - **查看已购买商品**
+  - **订单详情**
 
-3) Item
--category
--multiple photo
--item storage, low stack warning(optional)
--review, rating(optional)
+### 3️⃣ Purchase（订单管理）
+- **创建订单**
+- **订单状态管理**
+  - `pending`（待处理）
+  - `processing`（处理中）
+  - `delivered`（已送达）
+- **订单取消**（用户可以在 `pending` 状态下取消订单）
 
-4) Shopping
--carousel
--save shopping cart permanently(optional)
--product favourites(optional)
--search fitler(optional)
+### 4️⃣ Item（商品管理）
+- **商品展示**
+- **商品详情**
+- **商品库存管理**
+- **管理员管理商品（CRUD）**
 
+### 5️⃣ Shopping（购物功能）
+- **购物车功能**
+  - 添加/移除商品
+  - 计算总价
+- **热销商品排行**
+  - **Top 5 销量商品**
+- **搜索功能**
+  - **按名称或类别搜索商品**
+
+---
+
+## ⭐ 额外功能（可选，实现可拿高分）
+### 1️⃣ Register / Login / Logout（增强用户安全）
+- **邮件验证**（注册后需验证邮箱）
+- **验证码（Captcha）**（可选）
+- **临时封锁用户**（连续 3 次登录失败后短时间禁用，防止暴力破解）
+
+### 2️⃣ Purchase（订单系统扩展）
+- **订单状态更新**（管理员管理订单状态，如 `processing` ➝ `shipped`）
+- **折扣优惠券**
+- **积分系统**（可选，用户购物可积累积分）
+
+### 3️⃣ Item（商品功能扩展）
+- **商品分类**
+- **多图片支持**（每个商品可上传多张图片）
+- **库存管理 & 低库存警告**（可选）
+- **商品评价 & 评分**（可选）
+
+### 4️⃣ Shopping（购物体验优化）
+- **商品轮播图（Carousel）**
+- **购物车永久保存**（可选，用户下次登录时恢复购物车）
+- **收藏夹功能**（可选，用户可以收藏商品）
+- **高级搜索筛选**（可选，按**价格范围、类别等**筛选）
+
+### 5️⃣ Other（其他优化）
+- **AJAX 集成**（使用 AJAX 实现无刷新交互，如订单状态更新、购物车操作等）
