@@ -10,24 +10,24 @@
         <div class="category-container">
             <p>Category</p>
             <div class="category">
-                <?php 
-                $categories = [
-                    "category1.php" => "Running Shoes",
-                    "category2.php" => "High Heels",
-                    "category3.php" => "Short Pants",
-                    "category4.php" => "Long Pants",
-                    "category5.php" => "Rayan's T-Shirts",
-                    "category6.php" => "Slippers",
-                    "category7.php" => "Bags",
-                    "category8.php" => "Dress"
-                ];
+            <?php 
+            $categories = [
+                "Running Shoes" => ["link" => "category1.php", "image" => "image/categories/category1.jpeg"],
+                "High Heels" => ["link" => "category2.php", "image" => "image/categories/category2.jpg"],
+                "Short Pants" => ["link" => "category3.php", "image" => "image/categories/category3.jpeg"],
+                "Long Pants" => ["link" => "category4.php", "image" => "image/categories/category4.webp"],
+                "Rayan's T-Shirts" => ["link" => "category5.php", "image" => "image/categories/category5.webp"],
+                "Slippers" => ["link" => "category6.php", "image" => "image/categories/category6.jpg"],
+                "Bags" => ["link" => "category7.php", "image" => "image/categories/category7.jpeg"],
+                "Dress" => ["link" => "category8.php", "image" => "image/categories/category8.jpeg"]
+            ];
 
-                foreach ($categories as $link => $name): ?>
-                    <a href="<?= $link ?>" class="category-box">
-                        <img src="image/carousel/category1.jpeg" alt="<?= $name ?>">
-                        <p><?= $name ?></p>
-                    </a>
-                <?php endforeach; ?>
+            foreach ($categories as $name => $data): ?>
+                <a href="<?= ($data['link']) ?>" class="category-box">
+                    <img src="<?= ($data['image']) ?>" alt="<?= ($name) ?>">
+                    <p><?= ($name) ?></p>
+                </a>
+            <?php endforeach; ?>
             </div>
         </div>
     </div>
