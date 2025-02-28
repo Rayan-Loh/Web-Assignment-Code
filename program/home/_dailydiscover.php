@@ -38,4 +38,5 @@ $prices = [
             </a>
         <?php endforeach; ?>
     </div>
+    <span class="view-more">View More</span>
 </div>

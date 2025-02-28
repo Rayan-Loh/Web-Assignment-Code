@@ -24,7 +24,7 @@
 
                 foreach ($categories as $link => $name): ?>
                     <a href="<?= $link ?>" class="category-box">
-                        <img src="image/carousel/fashion1.jpg" alt="<?= $name ?>">
+                        <img src= alt="<?= $name ?>">
                         <p><?= $name ?></p>
                     </a>
                 <?php endforeach; ?>
