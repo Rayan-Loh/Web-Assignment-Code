@@ -25,16 +25,16 @@ $prices = [
     <h2>🛍️ Daily Discover 🔎</h2>
     <div class="sales-items">
         <?php foreach ($products as $product): ?>
-            <a class="sales-item" href="<?= htmlspecialchars($product['link']) ?>">
+            <a class="sales-item" href="<?= ($product['link']) ?>">
                 <div class="image-container">
-                    <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                    <img src="<?= ($product['image']) ?>" alt="<?= ($product['name']) ?>">
                     <p class="jump-text">跳转到页面</p>
                 </div>
-                <p class="product-name"><?= htmlspecialchars($product['name']) ?></p>
+                <p class="product-name"><?= ($product['name']) ?></p>
                 <?php if (isset($prices[$product['link']])): ?>
                     <p class="product-price">RM <?= $prices[$product['link']] ?></p>
                 <?php endif; ?>
-                <p class="sold-count"><?= htmlspecialchars($product['sold']) ?></p>
+                <p class="sold-count"><?= ($product['sold']) ?></p>
             </a>
         <?php endforeach; ?>
     </div>
