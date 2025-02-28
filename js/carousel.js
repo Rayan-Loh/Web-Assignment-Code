@@ -3,7 +3,11 @@ const images = [
     "image/carousel/fashion2.png",
     "image/carousel/fashion3.png",
     "image/carousel/fashion4.jpg",
-    "image/carousel/fashion5.png"
+    "image/carousel/fashion5.png",
+    "image/carousel/fashion6.webp",
+    "image/carousel/fashion7.jpeg",
+    "image/carousel/fashion8.webp",
+    "image/carousel/fashion9.webp"
 ];
 
 let currentIndex = 0;
