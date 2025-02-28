@@ -1,10 +1,10 @@
 <?php
 $products = [
-    ["name" => "商品名称1最多29字最多29字最多29字...", "image" => "image/product/product1.png", "link" => "product1.php", "sold" => "已售1000+"],
-    ["name" => "商品名称2", "image" => "image/product/product1.png", "link" => "product2.php", "sold" => "已售1000+"],
-    ["name" => "商品名称3", "image" => "image/product/product1.png", "link" => "product3.php", "sold" => "已售1000+"],
-    ["name" => "商品名称4", "image" => "image/product/product1.png", "link" => "product4.php", "sold" => "已售500+"],
-    ["name" => "商品名称5", "image" => "image/product/product1.png", "link" => "product5.php", "sold" => "已售100+"]
+    ["name" => "Puma | Wonderful Running Shoes form U...", "image" => "image/product/product1.png", "link" => "product1.php", "sold" => "SOLD 800+"],
+    ["name" => "RunningMan | Fastest than with a Tige...", "image" => "image/product/product2.avif", "link" => "product2.php", "sold" => "SOLD 40+"],
+    ["name" => "Puhu | Lions In The Ci...", "image" => "image/product/product3.jpg", "link" => "product3.php", "sold" => "SOLD 1000+"],
+    ["name" => "Lavino | High body can make boy fri...", "image" => "image/product/product4.webp", "link" => "product4.php", "sold" => "SOLD 500+"],
+    ["name" => "Monggoliq | Black Dresses for Mo...", "image" => "image/product/product5.webp", "link" => "product5.php", "sold" => "SOLD 100+"]
 ];
 ?>
 <div class="Top-Sales-Container">

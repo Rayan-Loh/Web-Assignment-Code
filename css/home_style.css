@@ -530,6 +530,7 @@ html{
         padding: 10px;
 
         transition: transform 0.2s ease-out;
+        position: relative;
     }
     .sales-item:hover{
         transform: scale(1.05);
@@ -559,10 +560,11 @@ html{
         font-size: 36px;
         word-wrap: break-word;
         text-align: center;
+        min-height: 56px; /* 限制高度 */
     }
     .product-name::after {
         display: block;
-        content: ".  .  .  .  .  .  .  .  .  .  .  .  .  .";
+        content: ".  .  .  .  .  .  .  .  .  .  .  .";
         font-size:50px;
     }
 
@@ -570,11 +572,17 @@ html{
         color: #ff5733; /* 橙色价格，突出显示 */
         font-size: 48px;
         font-weight: bold;
+        bottom: 20px;
+        left: 10px;
+        position: absolute;
     }
     
     .sold-count {
         color: gray;
         font-size: 24px;
+        bottom: 10px;
+        right: 10px;
+        position: absolute;
     }
     
     .sales-item:hover img {
