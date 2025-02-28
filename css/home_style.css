@@ -515,11 +515,12 @@ html{
         column-gap: 40px;
         margin: 10px 20px 10px 20px;
     }
-
+    
     .sales-item {
+        position: relative;
 
         width: 360px; /* 统一宽度 */
-        height: auto;
+        height: 600px;
         border-radius: 20px;
         text-align: start; /* 文字左对齐 */
         cursor: pointer;
@@ -528,12 +529,6 @@ html{
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 
         padding: 10px;
-
-        transition: transform 0.2s ease-out;
-        position: relative;
-    }
-    .sales-item:hover{
-        transform: scale(1.05);
     }
     
     .image-container {
@@ -560,29 +555,28 @@ html{
         font-size: 36px;
         word-wrap: break-word;
         text-align: center;
-        min-height: 56px; /* 限制高度 */
     }
     .product-name::after {
         display: block;
-        content: ".  .  .  .  .  .  .  .  .  .  .  .";
+        content: ".  .  .  .  .  .  .  .  .  .  .  .  .  .";
         font-size:50px;
     }
 
     .product-price {
+        position: absolute;
+        bottom: 40px;
+
         color: #ff5733; /* 橙色价格，突出显示 */
         font-size: 48px;
         font-weight: bold;
-        bottom: 20px;
-        left: 10px;
-        position: absolute;
     }
     
     .sold-count {
+        position: absolute;
+        bottom: 0px;
+
         color: gray;
         font-size: 24px;
-        bottom: 10px;
-        right: 10px;
-        position: absolute;
     }
     
     .sales-item:hover img {
@@ -606,13 +600,12 @@ html{
     .sales-item:hover .jump-text {
         opacity: 1;
     }
-
-    .view-more{
-        font-size: 32px;
-
-        position: relative;
-        top: 100px;
-    }
+}
+.Daily-Discover-Container::after{
+    display: block;
+    content: "View More";
+    font-size: 32px;
+    margin-top: 100px;
 }
 
 
