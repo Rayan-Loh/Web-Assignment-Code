@@ -7,7 +7,7 @@ require '../api/Database.php';
 session_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    header("Location: {$_GET['redirect']}");
+    empty($_GET['redirect']) ? header("Location: /") : header("Location: {$_GET['redirect']}");
     exit;
 }
 
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Set access_token cookie
         setcookie('access_token', $access_token, time() + 86400, '/');
 
-        header("Location: {$_GET['redirect']}");
+        empty($_GET['redirect']) ? header("Location: /") : header("Location: {$_GET['redirect']}");
         exit;
     } else {
         $error = 'Invalid username or password';

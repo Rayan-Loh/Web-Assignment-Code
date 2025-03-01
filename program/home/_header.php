@@ -1,6 +1,6 @@
 <?php
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_GET['redirect'])){
-    header("Location: {$_GET['redirect']}");
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+    empty($_GET['redirect']) ?: header("Location: {$_GET['redirect']}");
 }
 ?>
 <header>
@@ -33,7 +33,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_GE
                     <a href="logout">Logout</a>
                 </div>
             <?php else: ?>
-                <a href="login?redirect=<?php echo $_GET['redirect']; ?>">
+                <a href="login<?php echo isset($_GET['redirect']) ? "?redirect=" . urlencode($_GET['redirect']) : ""; ?>">
                     <i class="fas fa-user"></i>
                 </a>
             <?php endif; ?>
