@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_GET['redirect'])){
+    header("Location: {$_GET['redirect']}");
+}
+?>
 <header>
     <div class="ROXYS">
         <img src="/image/web_icon.png" alt="Roxy Logo">
@@ -28,7 +33,7 @@
                     <a href="logout">Logout</a>
                 </div>
             <?php else: ?>
-                <a href="login">
+                <a href="login?redirect=<?php echo $_GET['redirect']; ?>">
                     <i class="fas fa-user"></i>
                 </a>
             <?php endif; ?>
