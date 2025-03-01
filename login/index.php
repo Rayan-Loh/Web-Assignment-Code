@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<form id="loginForm" method="POST" action="/login/index.php?redirect=<?php echo urlencode($_GET['redirect']); ?>" class="login-form">
+<form id="loginForm" method="POST" action="<?php echo isset($_GET['redirect']) ? "?redirect=" . urlencode($_GET['redirect']) : ""; ?>" class="login-form">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" placeholder="username" required>
     <label for="password">Password:</label>
